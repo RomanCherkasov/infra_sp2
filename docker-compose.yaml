@@ -22,8 +22,6 @@ services:
   web:
     build: .
     restart: always
-    working_dir: /code/api_yamdb
-    # command: python api_yamdb/manage.py runserver 0.0.0.0:8000
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
     ports:
       - "8000:8000"
